@@ -42,7 +42,7 @@ Pyjwt==1.4.2
     │   │   ├── 500.html
     │   │   ├── base.html
     │   │   ├── charge.html
-│   │   ├── login.html
+    │   ├── login.html
     │   │   ├── products.html
     │   │   ├── members.html
     │   │   └── register.html
