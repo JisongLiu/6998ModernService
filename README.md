@@ -26,7 +26,7 @@ Pyjwt==1.4.2
 
 
 ## Screenshot
-![image](https://github.com/JisongLiu/6998ModernService/tree/master/screenshots/1.png)
+![image](screenshots/1.png)
 ![image](https://github.com/JisongLiu/6998ModernService/tree/master/screenshots/2.png)
 ![image](https://github.com/JisongLiu/6998ModernService/tree/master/screenshots/3.png)
 ![image](https://github.com/JisongLiu/6998ModernService/tree/master/screenshots/4.png)
