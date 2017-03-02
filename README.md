@@ -27,11 +27,11 @@ Use this app to integrate Flask and Stripe with a simple user registration syste
 
 ## Screenshot
 
-![image](screenshots/1.jpg)
-![image](https://github.com/2.jpg)
-![image](https://github.com/3.jpg)
-![image](https://github.com/4.jpg)
-![image](https://github.com/5.jpg)
+![image](/screenshots/1.png)
+![image](/screenshots/2.png)
+![image](/screenshots/3.png)
+![image](/screenshots/4.png)
+![image](/screenshots/5.png)
 
 
 
