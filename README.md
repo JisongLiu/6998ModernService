@@ -43,14 +43,13 @@ Pyjwt==1.4.2
     │   │   ├── 500.html
     │   │   ├── base.html
     │   │   ├── charge.html
-    │   ├── login.html
+    │   │   ├── login.html
     │   │   ├── products.html
     │   │   ├── members.html
     │   │   └── register.html
-    │   └─- views.py
-    |── config.py
-    |── db_create.py
-    |── error.log
-    |── requirements.txt
-    |-- run.py
-
+    │   └── views.py
+    ├── config.py
+    ├── db_create.py
+    ├── error.log
+    ├── requirements.txt
+    └── run.py
