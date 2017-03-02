@@ -47,10 +47,10 @@ Pyjwt==1.4.2
     │   │   ├── products.html
     │   │   ├── members.html
     │   │   └── register.html
-    │   └── views.py
-    ├── config.py
-    ├── db_create.py
-    ├── error.log
-    ├── requirements.txt
-    └── run.py
+    │   └─- views.py
+    |── config.py
+    |── db_create.py
+    |── error.log
+    |── requirements.txt
+    |-- run.py
 
