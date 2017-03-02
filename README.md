@@ -27,10 +27,10 @@ Pyjwt==1.4.2
 
 ## Screenshot
 ![image](screenshots/1.png)
-![image](https://github.com/JisongLiu/6998ModernService/tree/master/screenshots/2.png)
-![image](https://github.com/JisongLiu/6998ModernService/tree/master/screenshots/3.png)
-![image](https://github.com/JisongLiu/6998ModernService/tree/master/screenshots/4.png)
-![image](https://github.com/JisongLiu/6998ModernService/tree/master/screenshots/5.png)
+![image](screenshots/2.png)
+![image](screenshots/3.png)
+![image](screenshots/4.png)
+![image](screenshots/5.png)
 
 ## Project structure
     ├── app
