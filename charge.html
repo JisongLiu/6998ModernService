@@ -1,0 +1,20 @@
+ <html>
+ <head>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ </head>
+ <body>
+ <h2>Thanks!</h2>
+ <p>You just payed <div id="results"></div>dollars for the test product.</p>
+ <script type="text/javascript">
+ $(document).ready(function(){
+ 	var total=localStorage.getItem('totalPrice');
+ 	console.log(total);
+ 	var totalPrice=String(localStorage.getItem('totalPrice'));
+ 	console.log(totalPrice);
+ 	document.getElementById("results").innerHTML = totalPrice;
+});
+ </script>
+ </body>
+ </html>
+
+ 

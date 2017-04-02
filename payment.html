@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://checkout.stripe.com/checkout.js"></script>
+	</head>
+	<body>
+		<h1>Welcome to Payment Demo</h1>
+  		<br/>
+  <form id="myForm" action="" method="post">
+    <article>
+      <label>
+        <p>Please pay your balance. It's <div id="results"></div><p/>
+      </label>
+    </article>
+    <button id="stripe-button">Pay your products</button>
+  </form>
+  <br/>
+ <ul>
+   <li>Credit card number: 4242-4242-4242-4242</li>
+   <li>CVC: 3-digit number</li>
+   <li>Expiration date: MM/YY</li>
+ </ul>
+ <script type="text/javascript">
+ var stripeToken="";
+ var stripeEmail="";
+ var stripeAmount="";
+ $(document).ready(function(){
+ 	var totalPrice=localStorage.getItem('totalPrice');
+ 	console.log(typeof totalPrice);
+ 	console.log(totalPrice);
+ 	document.getElementById("results").innerHTML = totalPrice;
+});
+ $('#stripe-button').click(function(){
+          var token = function(res){
+          	stripeToken=res.id;
+          	stripeEmail=res.email;
+            var $id = $('<input type=hidden name=stripeToken />').val(res.id);
+            var $email = $('<input type=hidden name=stripeEmail />').val(res.email);
+            $('form').append($id).append($email).submit();
+          };
+
+          var amount = String(parseInt(localStorage.getItem('totalPrice'))*100);
+          stripeAmount=amount;
+          StripeCheckout.open({
+            key:         'pk_test_Vm8ya7i6VGaQpEURHFfyzYPl',
+            amount:      amount,
+            name:        'Pay the Products',
+            description: 'Have a happy day',
+            panelLabel:  'Checkout',
+            token:       token
+          });
+          
+
+          return false;
+        });
+ 	$('#myForm').submit(function(e){
+ 		var API_URL2='https://fqa9vsks99.execute-api.us-east-1.amazonaws.com/production/stripepay';
+ 		$.ajax({
+                    type: "POST",
+                    url: API_URL2,
+                    data: JSON.stringify({"token":stripeToken,"email":stripeEmail,"totalPrice":stripeAmount}),
+                    contentType: "application/json",
+                    success: function(data){
+                        console.log("Pay the order successfully");
+                        //localStorage.setItem('totalPrice', totalPrice);
+                        window.location.replace('final.html');
+                    }
+                });
+                return false;
+ 	});
+ 	 </script>
+	</body>
+</html>
