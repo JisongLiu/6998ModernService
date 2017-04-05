@@ -23,29 +23,33 @@ var item = {
  };
      console.log(params);
 var flag=false;
- db.getItem()
- db.putItem(params,function(err,data){
-     if (err) {
-           console.log("fail");console.log(err);
-     }
-     else{ console.log("success");
-         console.log(data);
-         flag=true;
-     }
-       var params = {
-        Protocol: 'email',
-        TopicArn: arn:aws:sns:us-east-1:106682779689:MyTopics,   // not sure, add a name or url?
-        Endpoint: email
-      };
-       sns.subscribe(params, function(err, data) {
+ db.get(params, function(err, data) {
         if (err) {
-          console.log(err, err.stack); // an error occurred
+                 db.putItem(params,function(err,data){
+                 if (err) {
+                       console.log("fail");console.log(err);
+                 }
+                 else{ console.log("success");
+                     console.log(data);
+                     flag=true;
+                 }
+                   var params = {
+                    Protocol: 'email',
+                    TopicArn: arn:aws:sns:us-east-1:106682779689:MyTopics,   // not sure, add a name or url?
+                    Endpoint: email
+                  };
+                   sns.subscribe(params, function(err, data) {
+                    if (err) {
+                      console.log(err, err.stack); // an error occurred
+                    } else {
+                      console.log('Working signup');
+                      console.log(data);           // successful response
+                    }   
+                  }
+                  callback(null,flag);
+             });
         } else {
-          console.log('Working signup');
-          console.log(data);           // successful response
-        }   
-      }
-      callback(null,flag);
- });
- 
+                callback(null, false);
+        }
+    });
 };
