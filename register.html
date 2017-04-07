@@ -7,29 +7,62 @@
   <p id="entries"></p>
   <h3>Please register.</h3>
     <br/>
+    <p id="result"></p>
     <form method="POST" action="">
       <p>Username: <input type="text" id="username" name="username" /> Email: <input type="text" id="email" name="email" /> Address: <input type="text" id="address" name="address" /></p>
-      <p>Password: <input type="text" id="password" name="password" /> Verify Password: <input type="text" id="password_check" name="password_check" /></p>
-      <p><input type="submit" id="submitButton" value="Register"></p>
+      <p>Password: <input type="password" id="password" name="password" /> Verify Password: <input type="password" id="password_check" name="password_check" /></p>
+      <p><input type="button" id="submitButton" value="Register"></p>
+      <p><input type="button" id="validate" value="Validate"></p>
     </form>
     <p><em>Already registered?</em> Click <a href="/">here</a> to login.</p>
     <script type="text/javascript">
+      function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      }
+
+      function validatePassword(password, secPassword) {
+        return password == secPassword;
+      }
+
+      function validate() {
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var check_password = $("#check_password").val();
+        if (validateEmail(email) && validatePassword(password, check_password)) {
+          return true;
+        } else {
+          $("#result").css("color", "red");
+          if (!validateEmail(email)) {
+            $("#result").text("Email address is not valid :(");
+          } else {
+            $("#result").text("Two Passwords are not the same :(");
+          } 
+          
+          return false;
+        }
+        // return false;
+      }
+      // $("#validate").bind("click", validate);
             var API_URL = 'https://fqa9vsks99.execute-api.us-east-1.amazonaws.com/production/createcustomer';
             $('#submitButton').on('click', function(){
+              if (validate() == true) {
                 $.ajax({
                     type: "POST",
                     url: API_URL,
                     data: JSON.stringify({ "name": $('#username').val(), "email": $('#email').val(), "password": $('#password').val(), "address": $('#address').val()}),
                     contentType: "application/json",
                     success: function(data){
-                    	if (data == true) {
-                    		$('#entries').append('<p>' + "Success!" + '</p>');
-                    	} else if (data == false) {
-                    		$('#entries').append('<p>' + "Failed!" + '</p>');
-                    	}
+                      if (data == true) {
+                        $('#entries').append('<p>' + "Success!" + '</p>');
+                      } else if (data == false) {
+                        $('#entries').append('<p>' + "Failed!" + '</p>');
+                      }
                     }
                 });
                 return false;
+              }
+                
             });
         </script>
 
