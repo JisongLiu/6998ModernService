@@ -8,6 +8,7 @@ var API_URL = ' https://fqa9vsks99.execute-api.us-east-1.amazonaws.com/productio
                    url: API_URL,
                    success: function(data){
                           count=data+1;
+                          localStorage.setItem('oid', count);
                       
                    }
                });
