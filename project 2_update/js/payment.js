@@ -2,6 +2,7 @@ var stripeToken="";
  var stripeEmail="";
  var stripeAmount="";
  var itemList=localStorage.getItem('itemList');
+var oid=localStorage.getItem('oid');
  $(document).ready(function(){
  	var totalPrice=localStorage.getItem('totalPrice');
  	console.log(typeof totalPrice);
@@ -39,7 +40,7 @@ var stripeToken="";
  		$.ajax({
                     type: "POST",
                     url: API_URL2,
-                    data: JSON.stringify({"itemList":itemList,"token":stripeToken,"email":stripeEmail,"totalPrice":stripeAmount}),
+                    data: JSON.stringify({"oid":oid,"itemList":itemList,"token":stripeToken,"email":stripeEmail,"totalPrice":stripeAmount}),
                     contentType: "application/json",
                     headers: {'Authorization': 'Bearer ' + localStorage.getItem('JWTtoken')},
                     success: function(data){
