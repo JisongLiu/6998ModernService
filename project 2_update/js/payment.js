@@ -2,7 +2,7 @@ var stripeToken="";
  var stripeEmail="";
  var stripeAmount="";
  var itemList=localStorage.getItem('itemList');
-// var oid=localStorage.getItem('oid');
+var oid=localStorage.getItem('oid');
 var userName=localStorage.getItem('userName');
  $(document).ready(function(){
  	var totalPrice=localStorage.getItem('totalPrice');
