@@ -1,0 +1,31 @@
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://checkout.stripe.com/checkout.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css" type="text/css">
+</head>
+<div class="body"></div>
+<div class="topnav">
+  <a href="products.html">Home</a>
+  <a href = "profile.html">Profile</a>
+  <a href="final.html">Others</a>
+  <a href="login.html">Sign out</a>
+ </div>
+    <div class="header">
+      <div><span>6998 Payment </span>Demo</div>
+    </div>
+    <div class="wish">Credit card number: 4242-4242-4242-4242</div>
+    <div class="sendEmail">CVC: 3-digit number</div>
+    <div class="sendAdvertisement">Expiration date: MM/YY</div>
+<div class="sentence">
+  <form id="myForm" action="" method="post">
+      <div>Please pay your balance. It's <span id="results"></span></div>
+      <button id="stripe-button">Pay</button>
+  </form>
+</div>
+ <div class="footer">
+    <div>COMSE6998 Mondern Service Applications Project 2<br>
+      Deyang Yin, Xiangyu Zeng, Tianrou Wang, Yuan Tian, Jisong Liu.
+    </div>
+  </div>
+ <script type="text/javascript" src="js/payment.js"></script>

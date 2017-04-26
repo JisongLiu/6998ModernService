@@ -1,0 +1,58 @@
+
+<head>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/examples.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="body"></div>
+<div class="grad"></div>
+
+
+<div id="app">
+  <div class="topnav">
+  <a class="active" href="products.html">Home</a>
+  <a href = "profile.html">Profile</a>
+  <a href="final.html">Others</a>
+  <a href="login.html">Sign out</a>
+ </div>
+  <div class="header">
+      <div>
+        <button @click="showCart = !showCart" v-show="!verified">
+            {{ items.length + (items.length > 1 || items.length === 0 ? " items" : " item") }}
+        </button>
+      </div>
+  </div>
+  <div class="cart" v-show="showCart">
+    <div v-show="items.length > 0">
+      <ul>
+        <li v-for="item in items" transition="fade">
+          <p><strong>{{ item.quantity }}</strong> - {{ item.name }} <i class="fa fa-trash" @click="removeFromCart(item)" title="remove"></i></p>
+        </li>
+      </ul>
+      <div>Total price: $<span>{{ total}}</span></div>
+      <div><button id="submitButton">Check out</button></div>
+    </div>
+    <div v-show="items.length === 0">
+      <p>Your cart is empty!</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="shop" v-show="!verified">
+      <ul>
+        <li v-for="item in shop">
+          <div>
+            <h3 text-align="center">{{ item.name }}</h3>
+            <img v-bind:src= "item.src"  width="200" height="150" border="0px">
+            <p>${{ item.price }}</p>
+            <button @click="addToCart(item)">Add to cart</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/products.js"></script>
+</body>
+
